@@ -26,6 +26,23 @@ class SudokuSolver(object):
     def check_consistency(self):
         return sum(DIMENSION - len(set(row)) for row in self.board)
 
+    def check_constraints(self, row, column, number):
+        if number in self.board[row]:
+            return False
+        if number in [self.board[i][column] for i in range(9)]:
+            return False
+        box_start = ((row // 3) * 3) * 9 + ((column // 3) * 3)
+        if number in self.get_one_box(box_start):
+            return False
+        return True
+
+    def possible_moves(self, row, column):
+        possibilities = []
+        for number in range(1, 10):
+            if self.check_constraints(row, column, number):
+                possibilities.append(number)
+        return possibilities
+
     def is_solved(self):
         for row in self.board:
             if 0 in row:
