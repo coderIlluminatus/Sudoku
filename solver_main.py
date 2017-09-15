@@ -13,13 +13,19 @@ def read_input():
 def main():
     board = read_input()
     simple_search = SolverSimpleSearch(deepcopy(board))
-    simple_search.solve()
+    solved = simple_search.solve()
+    if not solved:
+        print('COULD NOT SOLVE BY SIMPLE SEARCH')
 
     backtracking = SolverBacktracking(deepcopy(board))
-    backtracking.solve()
+    solved = backtracking.solve()
+    if not solved:
+        print('COULD NOT SOLVE BY BACKTRACKING')
 
     genetic = SolverGenetic(deepcopy(board))
-    genetic.solve()
+    solved = genetic.solve()
+    if not solved:
+        print('COULD NOT SOLVE BY GENETIC ALGORITHM')
 
 if __name__ == '__main__':
     main()

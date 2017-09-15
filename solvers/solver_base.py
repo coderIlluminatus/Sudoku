@@ -5,6 +5,12 @@ class SudokuSolver(object):
         self.initial_board = board
         self.board = self.initial_board
 
+    def display_solution(self):
+        pass
+
+    def get_first_blank(self):
+        return (row, row.index(0) for row in board if 0 in row)
+
     def get_one_box(self, i):
         return self.board[i : i+3] + self.board[i+9 : i+12] + self.board[i+18 : i+21]
 
@@ -16,6 +22,12 @@ class SudokuSolver(object):
 
     def check_consistency(self):
         return sum(DIMENSION - len(set(row)) for row in self.board)
+
+    def is_solved(self):
+        for row in self.board:
+            if 0 in row:
+                return False
+        return True
 
     @staticmethod
     def mismatch(vector_a, vector_b):
