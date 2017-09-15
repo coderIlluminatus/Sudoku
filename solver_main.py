@@ -11,21 +11,24 @@ def read_input():
     return board
 
 def main():
+    output_file = open('output.txt', 'w')
     board = read_input()
-    simple_search = SolverSimpleSearch(deepcopy(board))
-    solved = simple_search.solve()
-    if not solved:
-        print('COULD NOT SOLVE BY SIMPLE SEARCH')
+    # simple_search = SolverSimpleSearch(deepcopy(board))
+    # solved = simple_search.solve()
+    # if not solved:
+    #     print('COULD NOT SOLVE BY SIMPLE SEARCH')
 
+    output_file.write('SOLVING USING BACKTRACKING ALGORITHM:\n')
+    output_file.close()
     backtracking = SolverBacktracking(deepcopy(board))
     solved = backtracking.solve()
     if not solved:
         print('COULD NOT SOLVE BY BACKTRACKING')
 
-    genetic = SolverGenetic(deepcopy(board))
-    solved = genetic.solve()
-    if not solved:
-        print('COULD NOT SOLVE BY GENETIC ALGORITHM')
+    # genetic = SolverGenetic(deepcopy(board))
+    # solved = genetic.solve()
+    # if not solved:
+    #     print('COULD NOT SOLVE BY GENETIC ALGORITHM')
 
 if __name__ == '__main__':
     main()

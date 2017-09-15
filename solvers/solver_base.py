@@ -6,10 +6,13 @@ class SudokuSolver(object):
         self.board = self.initial_board
 
     def display_solution(self):
-        pass
+        output_file = open("output.txt", "a")
+        output_file.writelines(' '.join(str(element) for element in row) + '\n' for row in self.board)
 
     def get_first_blank(self):
-        return (row, row.index(0) for row in board if 0 in row)
+        for row_number, row in enumerate(self.board):
+            if 0 in row:
+                return row_number, row.index(0)
 
     def get_one_box(self, i):
         return self.board[i : i+3] + self.board[i+9 : i+12] + self.board[i+18 : i+21]

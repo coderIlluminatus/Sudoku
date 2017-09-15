@@ -1,4 +1,4 @@
-from copy import copy
+from copy import deepcopy
 from solvers.solver_base import SudokuSolver
 
 class SolverBacktracking(SudokuSolver):
@@ -32,7 +32,7 @@ class SolverBacktracking(SudokuSolver):
 
         if possibilities != []:
             for number in possibilities:
-                new_state = copy(self)
+                new_state = deepcopy(self)
                 new_state.board[blank_row_index][blank_column_index] = number
                 is_solved = new_state.solve()
                 if is_solved == True:
