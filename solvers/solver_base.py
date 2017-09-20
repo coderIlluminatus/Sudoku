@@ -6,7 +6,7 @@ class SudokuSolver(object):
         self.board = self.initial_board
 
     def display_solution(self):
-        output_file = open("output.txt", "a")
+        output_file = open("solution.txt", "a")
         output_file.writelines(' '.join(str(element) for element in row) + '\n' for row in self.board)
 
     def get_first_blank(self):

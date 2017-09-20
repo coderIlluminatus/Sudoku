@@ -3,9 +3,9 @@
 Sudoku solver in Python3 using Simple Search, Backtracking and Genetic Algorithm
 
 <img src="https://img.shields.io/badge/language-Python3-brightgreen.svg"/>
-<img src="https://img.shields.io/badge/PyCharm 2017.1.5-orange.svg"/>
-<img src="https://img.shields.io/badge/VS Code-1.10.2-blue.svg"/>
-<img src="https://img.shields.io/badge/emacs 24.5.1-red.svg"/>
+<img src="https://img.shields.io/badge/PyCharm-2017.1.5-orange.svg"/>
+<img src="https://img.shields.io/badge/VS-Code-1.10.2-blue.svg"/>
+<img src="https://img.shields.io/badge/emacs-24.5.1-red.svg"/>
 
 ## Authors
 
@@ -14,7 +14,7 @@ Sudoku solver in Python3 using Simple Search, Backtracking and Genetic Algorithm
  IIT 2015 511   :	Sayantan Chatterjee
  ICM 2015 003   :	Gaganjeet Singh Reen
  ICM 2015 501   :	Manasi Mohandas
- LIT 2015 040   :   Prankur Agarwal
+ LIT 2015 040   :	Prankur Agarwal
 ```
 
 ### Contents
