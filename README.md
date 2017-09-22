@@ -19,7 +19,6 @@ Sudoku solver in Python3 using Simple Search, Backtracking and Genetic Algorithm
 
 ### Contents
 * [About](#about)
-* [Theory](#theory)
 
 ### Language:
 
@@ -46,9 +45,7 @@ Sudoku solver in Python3 using Simple Search, Backtracking and Genetic Algorithm
 
 ## About
 
-* The board configuration input is present in `input.txt`.
-* The solved configuration is present in `output.txt`.
-* All steps performed during the computation are logged in `eventlog.txt`
-
-## Theory
+* The board configuration input is present in `puzzle.txt`.
+* The solved configuration is present in `solution.txt`.
+* Test cases are present in `test1.txt`, `test2.txt`, `test3.txt`. They need to be copied to `puzzle.txt` one by one for each test.
 

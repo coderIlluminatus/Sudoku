@@ -27,10 +27,7 @@ class SolverGenetic(SudokuSolver):
         self.board = sum(self.board, [])
 
     def reshape(self, board):
-        reshaped_board = []
-        for i in range(self.dimension):
-            reshaped_board += board[i * self.dimension : i * (self.dimension + 1)]
-        return reshaped_board
+        return [board[i * self.dimension : (i + 1) * (self.dimension)] for i in range(self.dimension)]
 
     def display_genetic_solution(self, board, generation_count):
         output_file = open('solution.txt', 'a')
@@ -166,10 +163,12 @@ class SolverGenetic(SudokuSolver):
                 mutation_preference = random()
                 if mutation_preference <= self.probability_mutation:
                     element_1, element_2 = randint(0, self.dimension - 1), randint(0, self.dimension - 1)
-                    while element_1 == element_2:
-                        element_1, element_2 = randint(0, self.dimension - 1), randint(0, self.dimension - 1)
-                    
                     index_1, index_2 = j * self.dimension + element_1, j * self.dimension + element_2
+
+                    while element_1 == element_2 or index_1 in self.fixed_indexes or index_2 in self.fixed_indexes:
+                        element_1, element_2 = randint(0, self.dimension - 1), randint(0, self.dimension - 1)
+                        index_1, index_2 = j * self.dimension + element_1, j * self.dimension + element_2
+                    
                     if index_1 not in self.fixed_indexes and index_2 not in self.fixed_indexes:
                         mutants[i][index_1], mutants[i][index_2] = mutants[i][index_2], mutants[i][index_1]
         return mutants
@@ -207,6 +206,3 @@ class SolverGenetic(SudokuSolver):
         self.set_fixed_indexes()
         self.initialize()
         self.evolution()
-
-        # DISPLAY
-        pass

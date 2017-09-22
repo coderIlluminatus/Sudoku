@@ -40,13 +40,17 @@ def main():
     if not solved:
         print('COULD NOT SOLVE BY BACKTRACKING')
 
-    genetic = SolverGenetic(deepcopy(board), 0.7, 0.2, 10000)
+    output_file = open('solution.txt', 'a')
+    output_file.write('\n\nSOLVING USING GENETIC ALGORITHM:\n')
+    output_file.close()
+    genetic = SolverGenetic(deepcopy(board), 0.7, 0.1, 10000)
     start_time = time()
     solved = genetic.solve()
     running_time = time() - start_time
     output_file = open('solution.txt', 'a')
     output_file.write('RUNNING TIME: ' + str(running_time) + 's\n')
     output_file.close()
+    print(running_time)
     if not solved:
         print('COULD NOT SOLVE BY GENETIC ALGORITHM')
 
